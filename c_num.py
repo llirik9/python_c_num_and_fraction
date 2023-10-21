@@ -70,7 +70,7 @@ class CNum:
             raise TypeError()
 
         if isinstance(other, CNum):
-            if other.real_part or other.imaginary_part:
+            if other.real_part and other.imaginary_part:
                 raise ZeroDivisionError()
 
             divider = (
@@ -139,8 +139,6 @@ class CNum:
         return atan2(self.imaginary_part, self.real_part)
 
     def __get_power_for_pow(self, other: Self) -> Self:
-        if not isinstance(other, CNum):
-            raise TypeError()
         return self.get_log() * other
 
     @staticmethod
@@ -170,11 +168,12 @@ class CNum:
                 sign = -1
 
         if tmp != '':
-            answer[0] = float(c_num) * sign
+            answer[0] = float(c_num)
         return answer
 
     def update_c_num(self, c_num: str):
         if 'i' in c_num:
-            self.real_part, self.imaginary_part = self.get_cnum_from_str(c_num)
+            self.real_part, self.imaginary_part = self.get_cnum_from_str(c_num)[0], self.get_cnum_from_str(c_num)[1]
         else:
             self.real_part = float(c_num)
+            self.imaginary_part = 0.0
