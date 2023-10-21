@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
+<project version="3">
+  <component name="Black">
+    <option name="sdkName" value="Python 3.12 (intellect-python)" />
+  </component>
   <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
