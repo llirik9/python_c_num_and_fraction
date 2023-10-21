@@ -136,7 +136,7 @@ class Fraction:
 
     def __search_divider(self) -> int:
         min_i = abs(min(self.banner, self.quotient))
-        for i in range(2, min_i+1):
+        for i in range(2, min_i + 1):
             if not (self.banner % i) and not (self.quotient % i):
                 return i
         return 0
